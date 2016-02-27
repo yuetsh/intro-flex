@@ -62,7 +62,7 @@ Beamer Theme  : singapore
 
 # 这是给PM和UI/UX看的！
 
-# 我不需要看如何实现，我要看效果, 效果你懂吗？
+## 我不需要看如何实现，我要看效果, 效果你懂吗？
 
 # you know?
 
@@ -81,7 +81,7 @@ Beamer Theme  : singapore
 
 其实图上是四个面
 
-# 先来一个点, 左上角的情况
+## 先来一个点, 左上角的情况
 ![touzi1]
 
 [touzi1]: images/touzi1.png "touzi1" { width:auto; max-width:90% }
@@ -97,7 +97,7 @@ Beamer Theme  : singapore
     display: flex;
   }
 ```
-# 依次类推, 一个点的情况
+## 依次类推, 一个点的情况
 
 ![touzi2]
 ```
@@ -119,7 +119,7 @@ Beamer Theme  : singapore
 ```
 [touzi3]: images/touzi3.png "touzi3" { width:auto; max-width:90% }
 
-# 两个点的情况
+## 两个点的情况
 
 ![touzi4]
 
@@ -136,19 +136,18 @@ Beamer Theme  : singapore
 
 ## [骰子例子的代码](http://codepen.io/LandonSchropp/pen/KpzzGo)
 
-# Grid Layout
+# 1. Grid Layout
 Bootstrap基本的
 ![grid]
 
 [grid]: images/grid.png "grid" { width:auto; max-width:90% }
 
-# Grid Layout
-百分比的布局
+## 百分比的布局
 ![grid1]
 
 [grid1]: images/grid1.png "grid1" { width:auto; max-width:90% }
 
-# Holy Grail Layout
+# 2. Holy Grail Layout
 
 一种最常见的网站布局, 页面从上到下, 分成三个部分: header，body，footer。其中body又水平分成三栏, 从左到右为: 导航、主栏、副栏。
 
@@ -159,12 +158,12 @@ Bootstrap基本的
 
 ## [可以玩一玩这个网页](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/)
 
-# icon/image + texts
+# 3. icon/image + texts
 ![easy]
 
 [easy]: images/easy.png "easy" { width:auto; max-width:90% }
 
-## 其他各种适合用Flex布局来解决的
+## 4. 其他各种适合用Flex布局来解决的
 
 ![cases]
 

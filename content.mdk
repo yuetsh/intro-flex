@@ -1,217 +1,227 @@
 [INCLUDE=presentation]
 Title         : Flex
-Sub Title     : intro flexbox
+Sub Title     : css flexbox
 Reveal Theme  : sky
 Beamer Theme  : singapore
 
 [TITLE]
 
+# About flexbox
 
-# Content
+* 传统的布局方式 ( display + position + float ) 已经不能满足一些特殊布局 ( e.g. 垂直居中 ) 、网页伸缩、移动端适配等情况
 
-[TOC]
+* 09年，W3C提出的Flex布局，可以简便、完整、响应式地实现各种页面布局。并且被所有浏览器支持 ( `除了微信大魔王` ) 
 
-# Madoko Presentation
+* 基本概念：flexbox可以自动调整子元素的高和宽，来很好的填充任何显示设备中的可用显示空间，收缩内容防止内容溢出
 
-![1]
+# Terms
+* 没错这里是图
 
-[1]: images/1.jpg "1" { width:auto; max-width:90% }
-Using [Madoko] it is easy to create beautiful presentations.
+![flex_terms]
+[flex_terms]: images/flex_terms.png "flex_terms" { width:auto; max-width:90% }
 
-* [Html][slide]:
-  Uses the `Reveal.js` library by [Hakim El Hattab](http://hakim.se).\
-  This slide demo in Madoko is an adaption of his online demo.
-* [Pdf][slide-pdf]:
-  Uses the `Beamer` package for LaTeX
-* [Source][slide-mdk]:
-  Click to see the source of this presentation.
-
-
-[madoko]: http://madoko.codeplex.com
-
-## Reveal.js
-
-`reveal.js` is a framework for easily creating beautiful presentations using
-HTML. You'll need a browser with support for CSS 3D transforms to see it in
-its full glory. 
-
-And any Madoko features just work. Here is some math:
-
-~ Begin Framed { padding:1ex; margin-top:1ex }
-A famous equation is $e = mc^2$, but this one is 
-famous too:
-
-~ Equation  {#eq-gaussian}
-\int_{-\infty}^\infty e^{-a x^2} d x = \sqrt{\frac{\pi}{a}} 
-~
-~ End Framed
-
-~~ Notes
-Oh hey, these are some notes. They'll be hidden in your presentation, but you
-can see them if you open the speaker notes window (hit 's' on your keyboard).
+## Details - 0
+* 弹性容器 flex container
+~~ Pre
+通过设置display 属性的值为flex 或 inline-flex将其定义为弹性容器。
 ~~
 
-## Code
+* 弹性子元素 flex items
+~~ Pre
+弹性容器的每一个子元素变为一个弹性子元素。
+~~
 
-Here is code, highlighted by Madoko 
+## details - 1
+* 轴
+~~ pre
+主轴和侧轴两个，相互垂直。item沿着主轴的依次排列。
+属性: flex-direction justify-content align-items align-self 
+~~
 
-``` javascript
-function sqr( x ) {
-  var \(&pi;\) = 3.141593;
-  return x*x;  /* the square */
-}
+* 方向
+~~ pre
+下 => 上 or 下 => 上 or 左 => 右 or 右 => 左
+属性: order
+~~
+
+* 行 hang
+~~ pre
+一行 or 可换行
+属性: flex-wrap
+~~
+
+* 尺寸
+~~ pre
+伸缩性
+属性: flex：none | [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]
+~~
+
+# 
+![stop]
+[stop]: images/stop.jpg "stop" { width:auto; max-width:90% }
+
+# 这是给PM和UI/UX看的！
+
+# 我不需要看如何实现，我要看效果, 效果你懂吗？
+
+# you know?
+
+# 
+![go-on] 
+[go-on]: images/go-on.jpg "go-on" { width:auto; max-width:90% }
+
+# 举一些🌰
+
+# 0. 骰子
+布局出一个骰子的六个面
+
+![touzi]
+
+[touzi]: images/touzi.png "touzi" { width:auto; max-width:90% }
+
+其实图上是四个面
+
+# 先来一个点, 左上角的情况
+![touzi1]
+
+[touzi1]: images/touzi1.png "touzi1" { width:auto; max-width:90% }
+
+```html
+  <div class="box">
+    <span class="item"></span>
+  </div>
 ```
-We used `\(` and `\)` to escape into markdown to write &pi;.
 
-<!-- Example of nested vertical slides -->
-~ Begin Vertical { data-background:Gainsboro }
+```
+  .box {
+    display: flex;
+  }
+```
+# 依次类推, 一个点的情况
 
-## Vertical Slides {#vertical}
-Slides can be nested inside of other slides,
-try pressing [down].
+![touzi2]
+```
+  .box {
+    display: flex;
+    justify-content: center;
+  }
+```
 
-[![arrowdown]][down]
+[touzi2]: images/touzi2.png "touzi2" { width:auto; max-width:90% }
 
+# 
+![touzi3]
+```
+  .box {
+    display: flex;
+    justify-content: flex-end;
+  }
+```
+[touzi3]: images/touzi3.png "touzi3" { width:auto; max-width:90% }
 
-[down]: # { .navigate-down }
-[arrowdown]: images/arrow.png "Down arrow" { width:178px; height:238px }
+# 两个点的情况
 
-## Basement Level 1
-Press down or up to navigate.
+![touzi4]
 
-## Basement Level 2
+[touzi4]: images/touzi4.png "touzi4" { width:auto; max-width:90% }
 
-Use `columns` to put blocks next to each other:
+```
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+```
 
-~ Begin Columns
-~ Column { width:50% }
-A monarch butterfly (shown to the right)
-spends the winter in Mexico.
-~
-~ Column
-![butterfly]
-~
-~ End Columns
+## [骰子例子的代码](http://codepen.io/LandonSchropp/pen/KpzzGo)
 
-[butterfly]: images/butterfly.png "A Monarch butterfly" { width:280px; vertical-align:middle }
+# Grid Layout
+Bootstrap基本的
+![grid]
 
+[grid]: images/grid.png "grid" { width:auto; max-width:90% }
 
-<!-- 
-For local background images, we need to have a reference to the image
-such that it's data gets embedded into the HTML page. We define
-it using "display=none" so it is hidden in the presentation. 
-We can then refer to the image in "data-background-image". 
--->
+# Grid Layout
+百分比的布局
+![grid1]
 
-![bfly]
-[bfly]: images/butterfly.png "Butterfly" { display:none }
+[grid1]: images/grid1.png "grid1" { width:auto; max-width:90% }
 
-## Basement Level 3 { data-background-image:images/butterfly.png }
-That's it, time to go back up.
+# Holy Grail Layout
 
-[![arrowup]][back2]
+一种最常见的网站布局, 页面从上到下, 分成三个部分: header，body，footer。其中body又水平分成三栏, 从左到右为: 导航、主栏、副栏。
 
-[arrowup]:  images/arrow.png "Up arrow" { width:178px; height:238px; transform:rotate(180deg) }
-[back2]:    #vertical { .image }
+# Holy Grail Layout
+![holy-grial-layout]
 
-~ End Vertical
+[holy-grial-layout]: images/holy-grial-layout.jpg "holy-grial-layout" { width:auto; max-width:80% }
 
+## [可以玩一玩这个网页](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/)
 
-## Themes {#themes}
+# icon/image + texts
+![easy]
 
-Reveal.js comes with a few themes built in:
+[easy]: images/easy.png "easy" { width:auto; max-width:90% }
 
-* [Default](?#/themes)
-* [Sky](?theme=sky#/themes)
-* [Beige](?theme=beige#/themes)
-* [Serif](?theme=serif#/themes)
-* [Simple](?theme=simple#/themes)
-* [Night](?theme=night#/themes)
-* [Moon](?theme=moon#/themes)
-* [Solarized](?theme=solarized#/themes)
+## 其他各种适合用Flex布局来解决的
 
-Theme demos are loaded after the presentation which leads to flicker. In
-production you should load your theme in the `<head>` using a
-`<link>`.
+![cases]
 
-## Transitions { #transitions }
+[cases]: images/cases.png "cases" { width:auto; max-width:80% }
 
-You can select from different transitions, like:\
-[Cube](?transition=cube#/transitions) -
-[Page](?transition=page#/transitions) -
-[Concave](?transition=concave#/transitions) -
-[Zoom](?transition=zoom#/transitions) -
-[Linear](?transition=linear#/transitions) -
-[Fade](?transition=fade#/transitions) -
-[None](?transition=none#/transitions) -
-[Default](?#/transitions)
+# Thanks for watching
 
+# 
+![thanks]
 
+[thanks]: images/thanks.png "thanks" { width:auto; max-width:90% }
 
-## Pauses?
+## 众所周知，燎原web几乎每处都使用flex布局
 
-Some pauses.
+# 前方高能预警，非战斗人员速速撤离
 
-* {.fragment} One
-* {.fragment} Two
-* {.fragment} Three
+# 
+![w1]
+[w1]: images/w1.jpg "w1" { width:300px }
 
-And more:
+# 
 
-- Test 1
-- Test 2
-- Test 3
-{.fragmented}
+![w2]
+[w2]: images/w2.jpg "w2" { width:300px }
 
-Cool!.
+# 
+![w3]
+[w3]: images/w3.jpg "w3" { width:300px }
 
-~ Slide
-A slide with no header
-~
+# 
 
+![w4]
+[w4]: images/w4.jpg "w4" { width:300px }
 
-## Point of View
+# 
+![w5]
+[w5]: images/w5.jpg "w5" { width:300px }
 
-In Reveal.js Press **ESC** to enter the slide overview.
+# 
 
-Hold down alt and click on any element to zoom in on it using 
- [zoom.js]. Alt + click anywhere to zoom back out.
+![w6]
+[w6]: images/w6.jpg "w6" { width:300px }
 
+# 
 
-[zoom.js]: http://lab.hakim.se/zoom-js
+![w8]
+[w8]: images/w8.jpg "w8" { width:300px }
 
+# 
 
-## Works in Mobile Safari
+![w9]
+[w9]: images/w9.jpg "w9" { width:300px }
 
-Try it out! You can swipe through the slides and pinch your way to the
-overview.
+# 
+那一天，人类终于回想起了，曾经一度被微信浏览器所支配的恐怖。
 
+# 
 
-## Printing
-
-You can print a `revealjs` presentation nicely from the browser.
-
-First give the `?print-pdf` or `?print-paper` query on your final
-presentation (in the browser address bar) and then print from the Chrome
-browser selecting `Save to PDF`.
-
-Read more about it at the [revealjs documentation](https://github.com/hakimel/reveal.js#pdf-export)
-
-## RevealJS library
-
-Normally, the `revealjs` library is loaded from a CDN but you can specify your
-own url using metadata:
-
-    Reveal Url: <my url>
-
-This can be useful when using a [server to run revealjs](https://github.com/hakimel/reveal.js#full-setup)
-where you may use something like:
-
-    @nopreview Reveal Url: http://localhost:8000/reveal.js
-
-
-## Thanks for looking :-)
-
-[slide]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.html
-[slide-mdk]: https://www.madoko.net/editor.html?#url=http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/slidedemo.mdk&options={"delayedUpdate":"true"}
-[slide-pdf]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.pdf
+![hehe]
+[hehe]: images/hehe.jpg "hehe" { width:auto }

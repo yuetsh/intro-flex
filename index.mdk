@@ -169,6 +169,12 @@ Bootstrap基本的
 
 [cases]: images/cases.png "cases" { width:auto; max-width:80% }
 
+# 总结
+* float nothing, flex everything
+* 对于各种姿势的对齐有天生的优势
+* [flex in 5 minutes](http://flexboxin5.com/)
+* [solved by flexbox](https://philipwalton.github.io/solved-by-flexbox/)
+
 # Thanks for watching
 
 # 

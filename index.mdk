@@ -56,6 +56,18 @@ Beamer Theme  : singapore
 属性: flex：none | [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]
 ~~
 
+## 拎一个flex-direction粗来讲一哈
+![flex_direction]
+[flex_direction]: images/flex-direction.png "flex_direction" { width:auto; max-width:90% }
+
+## 四个可能的值
+
+* row（默认值）：主轴为水平方向，起点在左端
+* row-reverse：主轴为水平方向，起点在右端
+* column：主轴为垂直方向，起点在上沿
+* column-reverse：主轴为垂直方向，起点在下沿
+* [link](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
+
 # 
 ![stop]
 [stop]: images/stop.jpg "stop" { width:auto; max-width:90% }
